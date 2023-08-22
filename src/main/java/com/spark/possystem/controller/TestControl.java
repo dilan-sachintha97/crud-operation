@@ -12,4 +12,9 @@ public class TestControl {
     public String getText(){
         return "Spring boot app is starting ";
     }
+
+    @GetMapping("/get-name")
+    public  String getName(){
+        return "I am Dilan Sachintha";
+    }
 }
