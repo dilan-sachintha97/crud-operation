@@ -2,13 +2,11 @@ package com.spark.possystem.controller;
 
 import com.spark.possystem.dto.request.CustomerDTO;
 import com.spark.possystem.service.CustomerService;
-import com.spark.possystem.uti.StandardResponse;
+import com.spark.possystem.util.StandardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/customer")

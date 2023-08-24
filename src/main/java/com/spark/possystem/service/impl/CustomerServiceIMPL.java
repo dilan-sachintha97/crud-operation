@@ -4,13 +4,12 @@ import com.spark.possystem.dto.response.CustomerResponseDTO;
 import com.spark.possystem.entity.Customer;
 import com.spark.possystem.repo.CustomerRepo;
 import com.spark.possystem.service.CustomerService;
-import com.spark.possystem.uti.IdGenerator;
+import com.spark.possystem.util.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerServiceIMPL implements CustomerService {

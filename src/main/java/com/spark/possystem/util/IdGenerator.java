@@ -1,6 +1,5 @@
-package com.spark.possystem.uti;
+package com.spark.possystem.util;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.spark.possystem.uti;
+package com.spark.possystem.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
