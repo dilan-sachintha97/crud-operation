@@ -52,7 +52,7 @@ public class CustomerServiceIMPL implements CustomerService {
         Customer customer =  customerRepo.findById(id).orElse(null);
 
         if (customer ==  null){
-           throw new ClassNotFoundException();
+           throw new ClassNotFoundException("Not Found");
         }
 
         return  new CustomerResponseDTO(
