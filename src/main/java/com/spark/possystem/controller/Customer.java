@@ -1,6 +1,6 @@
 package com.spark.possystem.controller;
 
-import com.spark.possystem.dto.request.CustomerDTO;
+import com.spark.possystem.dto.request.CustomerRequestDTO;
 import com.spark.possystem.service.CustomerService;
 import com.spark.possystem.util.StandardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class Customer {
 //            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
 //            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
-    public ResponseEntity<StandardResponse> saveCustomer(@RequestBody CustomerDTO customerDTO){
+    public ResponseEntity<StandardResponse> saveCustomer(@RequestBody CustomerRequestDTO customerDTO){
         return new ResponseEntity<>(
                 new StandardResponse(
                         201,
@@ -43,7 +43,7 @@ public class Customer {
     }
 
     @PutMapping(value = "/update", params = {"id"})  // localhost:8085/api/v1/customer/update?id=15
-    public ResponseEntity<StandardResponse> updateCustomer(@RequestBody CustomerDTO customerDTO, @RequestParam String id){
+    public ResponseEntity<StandardResponse> updateCustomer(@RequestBody CustomerRequestDTO customerDTO, @RequestParam String id){
         return new ResponseEntity<>(
                 new StandardResponse(
                         201,

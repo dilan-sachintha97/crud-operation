@@ -1,5 +1,5 @@
 package com.spark.possystem.service.impl;
-import com.spark.possystem.dto.request.CustomerDTO;
+import com.spark.possystem.dto.request.CustomerRequestDTO;
 import com.spark.possystem.dto.response.CustomerResponseDTO;
 import com.spark.possystem.entity.Customer;
 import com.spark.possystem.repo.CustomerRepo;
@@ -21,7 +21,7 @@ public class CustomerServiceIMPL implements CustomerService {
     private IdGenerator idGenerator;
 
     @Override
-    public String saveCustomer(CustomerDTO customerDTO) {
+    public String saveCustomer(CustomerRequestDTO customerDTO) {
         Customer c1 = new Customer(
                 idGenerator.generateID(10),
                 customerDTO.getName(),
@@ -63,7 +63,7 @@ public class CustomerServiceIMPL implements CustomerService {
     }
 
     @Override
-    public String updateCustomer(CustomerDTO customerDTO, String id) {
+    public String updateCustomer(CustomerRequestDTO customerDTO, String id) {
         Customer c = customerRepo.findAllById(id).orElse(null);
         if(null == c) return  "Not Found Customer";
 
