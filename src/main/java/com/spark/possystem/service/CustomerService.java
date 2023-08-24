@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CustomerService {
     public String saveCustomer(CustomerDTO customerDTO);
-    public CustomerResponseDTO findCustomer(String id);
+    public CustomerResponseDTO findCustomer(String id) throws ClassNotFoundException;
     public String updateCustomer(CustomerDTO customerDTO, String id);
     public String deleteCustomer(String id);
     public List<CustomerResponseDTO> findAllCustomers();

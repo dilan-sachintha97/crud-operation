@@ -33,7 +33,7 @@ public class CustomerServiceIMPL implements CustomerService {
         return c1.getId() + " was saved !";
     }
 
-    @Override
+   /* @Override
     public CustomerResponseDTO findCustomer(String id) {
        Optional<Customer> customer =  customerRepo.findAllById(id);
        if (customer.isPresent()){
@@ -45,7 +45,22 @@ public class CustomerServiceIMPL implements CustomerService {
            );
        }
       return null;
+    }*/
 
+    @Override
+    public CustomerResponseDTO findCustomer(String id) throws ClassNotFoundException {
+        Customer customer =  customerRepo.findById(id).orElse(null);
+
+        if (customer ==  null){
+           throw new ClassNotFoundException();
+        }
+
+        return  new CustomerResponseDTO(
+                customer.getId(),
+                customer.getName(),
+                customer.getAddress(),
+                customer.getSalary()
+        );
     }
 
     @Override

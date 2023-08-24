@@ -1,12 +1,10 @@
 package com.spark.possystem.controller;
 
 import com.spark.possystem.dto.request.CustomerDTO;
-import com.spark.possystem.dto.response.CustomerResponseDTO;
 import com.spark.possystem.service.CustomerService;
 import com.spark.possystem.uti.StandardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +34,7 @@ public class Customer {
     }
 
     @GetMapping("/find-customer/{id}")   // localhost:8085/api/v1/customer/find-customer/15
-    public ResponseEntity<StandardResponse> findCustomer(@PathVariable String id){
+    public ResponseEntity<StandardResponse> findCustomer(@PathVariable String id) throws ClassNotFoundException {
         return new ResponseEntity<>(
                 new StandardResponse(
                         200,
