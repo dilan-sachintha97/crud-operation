@@ -74,6 +74,18 @@ public class Customer {
                 ), HttpStatus.OK
         );
     }
+
+    // localhost:8085/api/v1/customer/customer-list?searchText=scc&page=1&size=20
+    @GetMapping(value = "/customer-list", params = {"searchText", "page", "size"})
+    public ResponseEntity<StandardResponse> findAllCustomersPaginate(@RequestParam String searchText, @RequestParam int page, @RequestParam int size){
+        return new ResponseEntity<>(
+                new StandardResponse(
+                        200,
+                        " DATA List",
+                        customerService.findAllCustomersPaginate(searchText,page,size)
+                ), HttpStatus.OK
+        );
+    }
 }
 
 

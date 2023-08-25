@@ -2,6 +2,7 @@ package com.spark.possystem.service.impl;
 import com.spark.possystem.dto.CustomerDTO;
 import com.spark.possystem.dto.request.CustomerRequestDTO;
 import com.spark.possystem.dto.response.CustomerResponseDTO;
+import com.spark.possystem.dto.response.paginate.PaginatedCustomerResponseDTO;
 import com.spark.possystem.entity.Customer;
 import com.spark.possystem.repo.CustomerRepo;
 import com.spark.possystem.service.CustomerService;
@@ -118,5 +119,10 @@ public class CustomerServiceIMPL implements CustomerService {
             ));
         }
         return customerResponseDTOList;
+    }
+
+    @Override
+    public PaginatedCustomerResponseDTO findAllCustomersPaginate(String searchText, int page, int size) {
+        return null;
     }
 }
