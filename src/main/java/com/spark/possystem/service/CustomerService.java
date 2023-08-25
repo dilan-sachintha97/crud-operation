@@ -6,7 +6,7 @@ import com.spark.possystem.dto.response.CustomerResponseDTO;
 import java.util.List;
 
 public interface CustomerService {
-    public String saveCustomer(CustomerRequestDTO customerDTO);
+    public String saveCustomer(CustomerRequestDTO customerRequestDTO);
     public CustomerResponseDTO findCustomer(String id) throws ClassNotFoundException;
     public String updateCustomer(CustomerRequestDTO customerDTO, String id);
     public String deleteCustomer(String id);

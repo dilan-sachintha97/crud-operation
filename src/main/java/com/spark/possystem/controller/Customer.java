@@ -20,11 +20,11 @@ public class Customer {
 //            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
 //            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
-    public ResponseEntity<StandardResponse> saveCustomer(@RequestBody CustomerRequestDTO customerDTO){
+    public ResponseEntity<StandardResponse> saveCustomer(@RequestBody CustomerRequestDTO customerRequestDTO){
         return new ResponseEntity<>(
                 new StandardResponse(
                         201,
-                        customerService.saveCustomer(customerDTO),
+                        customerService.saveCustomer(customerRequestDTO),
                         null
                 ), HttpStatus.CREATED
         );

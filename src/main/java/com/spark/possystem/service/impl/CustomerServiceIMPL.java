@@ -1,10 +1,12 @@
 package com.spark.possystem.service.impl;
+import com.spark.possystem.dto.CustomerDTO;
 import com.spark.possystem.dto.request.CustomerRequestDTO;
 import com.spark.possystem.dto.response.CustomerResponseDTO;
 import com.spark.possystem.entity.Customer;
 import com.spark.possystem.repo.CustomerRepo;
 import com.spark.possystem.service.CustomerService;
 import com.spark.possystem.util.IdGenerator;
+import com.spark.possystem.util.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,23 +16,40 @@ import java.util.List;
 @Service
 public class CustomerServiceIMPL implements CustomerService {
 
-    @Autowired
+//    @Autowired
+//   private CustomerMapper customerMapper;
+
+  @Autowired
     private CustomerRepo customerRepo;
 
     @Autowired
     private IdGenerator idGenerator;
 
+
     @Override
-    public String saveCustomer(CustomerRequestDTO customerDTO) {
+    public String saveCustomer(CustomerRequestDTO customerRequestDTO) {
         Customer c1 = new Customer(
                 idGenerator.generateID(10),
-                customerDTO.getName(),
-                customerDTO.getAddress(),
-                customerDTO.getSalary()
+                customerRequestDTO.getName(),
+                customerRequestDTO.getAddress(),
+                customerRequestDTO.getSalary()
         );
         customerRepo.save(c1);
         return c1.getId() + " was saved !";
     }
+
+ /*   @Override
+    public String saveCustomer(CustomerRequestDTO customerRequestDTO) {
+        CustomerDTO customerDTO = new CustomerDTO(
+                idGenerator.generateID(10),
+                customerRequestDTO.getName(),
+                customerRequestDTO.getAddress(),
+                customerRequestDTO.getSalary()
+        );
+
+        return  customerRepo.save(customerMapper.toCustomer(customerDTO)).getId() + "was saved !";
+
+    }*/
 
    /* @Override
     public CustomerResponseDTO findCustomer(String id) {
