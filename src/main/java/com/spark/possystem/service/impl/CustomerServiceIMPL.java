@@ -9,8 +9,10 @@ import com.spark.possystem.service.CustomerService;
 import com.spark.possystem.util.IdGenerator;
 import com.spark.possystem.util.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,8 +125,23 @@ public class CustomerServiceIMPL implements CustomerService {
 
     @Override
     public PaginatedCustomerResponseDTO findAllCustomersPaginate(String searchText, int page, int size) {
-        return null;
+
           // create method with a custom query=?  (find data)
           // create method with a custom query=?  (count)
+
+       int count = customerRepo.countCustomers(searchText);
+       List<Customer> customers = customerRepo.searchCustomers(searchText, (Pageable) PageRequest.of(page, size));
+        List<CustomerResponseDTO> customerResponseDTOList = new ArrayList<>();
+
+        for (Customer c: customers) {
+            customerResponseDTOList.add(new CustomerResponseDTO(
+                    c.getId(),
+                    c.getName(),
+                    c.getAddress(),
+                    c.getSalary()
+            ));
+        }
+
+        return new PaginatedCustomerResponseDTO(count,customerResponseDTOList);
     }
 }
