@@ -124,5 +124,7 @@ public class CustomerServiceIMPL implements CustomerService {
     @Override
     public PaginatedCustomerResponseDTO findAllCustomersPaginate(String searchText, int page, int size) {
         return null;
+          // create method with a custom query=?  (find data)
+          // create method with a custom query=?  (count)
     }
 }
